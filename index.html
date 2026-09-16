@@ -93,6 +93,7 @@
   /* PROJECTS */
   .proj-featured{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px;}
   @media(max-width:760px){ .proj-featured{grid-template-columns:1fr;} }
+  .card.hero-featured{margin-bottom:20px;border-color:var(--amber);}
   .card{
     background:var(--panel);border:1px solid var(--line);border-radius:6px;
     padding:26px;display:flex;flex-direction:column;gap:12px;
@@ -233,29 +234,51 @@
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Selected work</div>
-      <h2>Seven shipped systems, one throughline</h2>
-      <p>From an AI-native EdTech platform to a legacy ERP kept alive with AI-assisted refactoring — the two featured builds below show the range. The rest is client and consulting work.</p>
+      <h2>Eight shipped systems, one throughline</h2>
+      <p>From an in-progress AI-graded LMS to a legacy ERP kept alive with AI-assisted refactoring — the featured builds below show the range. The rest is client and consulting work.</p>
     </div>
+
+    <article class="card featured hero-featured">
+      <div class="card-path">~/projects/<b>nlite</b> · May 2026 – Present</div>
+      <span class="role-tag"><span class="dot" style="width:6px;height:6px;margin-right:5px;"></span>In progress · Flagship build</span>
+      <h3>Nlite — Cognitive Assessment Platform</h3>
+      <p class="desc">Architected end-to-end: a React Native app, two Vue 3 dashboards, and a Node.js/Hapi.js microservices backend with dual PostgreSQL/MongoDB. Built the AI layer — Gemini + Sarvam pipelines for report generation, OCR essay grading, and speech scoring — with a deterministic safety validator on every AI-written report.</p>
+      <button class="toggle" onclick="toggleMore('nlite')">+ read the full breakdown</button>
+      <div class="more" id="more-nlite">
+        <ul>
+          <li>Handwriting/essay grading: AWS Textract OCR + Gemini rubric-based scoring for structure, grammar, coherence.</li>
+          <li>Speech scoring: Sarvam AI speech-to-text + a hybrid LCS-diff/Gemini semantic reconciliation to fairly score paraphrased answers.</li>
+          <li>20+ real-time cognitive games on a dedicated scoring microservice, with an AES-256-encrypted, mathjs-based formula interpreter and async Bull/Redis processing.</li>
+          <li>Wati (WhatsApp Business API) integration to deliver CBCL assessments directly to parents.</li>
+          <li>Docker/GitHub Actions CI/CD with path-filtered deploys to AWS EC2, plus k6 load/stress/soak test suites.</li>
+        </ul>
+      </div>
+      <div class="chips">
+        <span class="chip">React Native</span><span class="chip">Vue 3</span><span class="chip">Hapi.js</span>
+        <span class="chip">PostgreSQL</span><span class="chip">MongoDB</span><span class="chip">Gemini API</span><span class="chip">Sarvam AI</span>
+      </div>
+    </article>
 
     <div class="proj-featured">
       <article class="card featured">
-        <div class="card-path">~/projects/<b>nlite</b> · May 2026</div>
-        <span class="role-tag">Flagship build</span>
-        <h3>Nlite — Cognitive Assessment Platform</h3>
-        <p class="desc">Architected end-to-end: a React Native app, two Vue 3 dashboards, and a Node.js/Hapi.js microservices backend with dual PostgreSQL/MongoDB. Built the AI layer — Gemini + Sarvam pipelines for report generation, OCR essay grading, and speech scoring — with a deterministic safety validator on every AI-written report.</p>
-        <button class="toggle" onclick="toggleMore('nlite')">+ read the full breakdown</button>
-        <div class="more" id="more-nlite">
+        <div class="card-path">~/projects/<b>vtricks-lms</b> · May 2026 – Present</div>
+        <span class="role-tag"><span class="dot" style="width:6px;height:6px;margin-right:5px;"></span>In progress · Senior Developer</span>
+        <h3>Vtricks LMS — Full-Stack LMS</h3>
+        <p class="desc">Overseeing the build of a full-stack LMS (React 18/TypeScript, Node.js/Express, PostgreSQL) serving Admin, Trainer, and Student portals — developed with AI-assisted development practices across the team. Covers course/batch management, face-recognition attendance, AI-graded coding assessments, fee/invoicing, placements, and GitHub-based internship evaluation.</p>
+        <button class="toggle" onclick="toggleMore('lms')">+ read the full breakdown</button>
+        <div class="more" id="more-lms">
           <ul>
-            <li>Handwriting/essay grading: AWS Textract OCR + Gemini rubric-based scoring for structure, grammar, coherence.</li>
-            <li>Speech scoring: Sarvam AI speech-to-text + a hybrid LCS-diff/Gemini semantic reconciliation to fairly score paraphrased answers.</li>
-            <li>20+ real-time cognitive games on a dedicated scoring microservice, with an AES-256-encrypted, mathjs-based formula interpreter and async Bull/Redis processing.</li>
-            <li>Wati (WhatsApp Business API) integration to deliver CBCL assessments directly to parents.</li>
-            <li>Docker/GitHub Actions CI/CD with path-filtered deploys to AWS EC2, plus k6 load/stress/soak test suites.</li>
+            <li>Auth: JWT + refresh tokens, Google/GitHub OAuth, MSG91 OTP login, granular custom role/permission system.</li>
+            <li>Coding assessments: Judge0 sandboxed multi-language execution (Python, JS, Java, C++, C) with an in-browser Monaco Editor, plus Groq LLM-based AI grading for assignments and assessments.</li>
+            <li>Attendance: client-side face recognition (face-api.js) tied to session-based attendance tracking.</li>
+            <li>Internship pipeline: GitHub OAuth + webhooks with automated commit polling to auto-evaluate intern task submissions.</li>
+            <li>Fees & placements: UPI payment-proof verification, PDFKit invoice generation, and a placements module with AI-powered mock interviews (Groq + face-api).</li>
+            <li>Notifications & ops: WhatsApp Business Cloud API + Nodemailer, with node-cron scheduled analytics rollups and log cleanup.</li>
           </ul>
         </div>
         <div class="chips">
-          <span class="chip">React Native</span><span class="chip">Vue 3</span><span class="chip">Hapi.js</span>
-          <span class="chip">PostgreSQL</span><span class="chip">MongoDB</span><span class="chip">Gemini API</span><span class="chip">Sarvam AI</span>
+          <span class="chip">React 18</span><span class="chip">TypeScript</span><span class="chip">Node.js/Express</span>
+          <span class="chip">PostgreSQL</span><span class="chip">Judge0</span><span class="chip">Groq</span><span class="chip">face-api.js</span>
         </div>
       </article>
 
@@ -285,9 +308,9 @@
       <article class="card">
         <div class="card-path">~/projects/<b>kardify</b> · Aug 2024</div>
         <h3>Kardify</h3>
-        <p class="desc">4-app automotive e-commerce system — API, Next.js storefront, Next.js admin, React Native — with vehicle-fit product discovery and voice-enabled search.</p>
+        <p class="desc">4-app automotive e-commerce system — API, Next.js storefront, Next.js admin, React Native — with vehicle-fit product discovery and voice-enabled search. Full stack deployed on AWS EC2.</p>
         <div class="chips">
-          <span class="chip">Next.js</span><span class="chip">Hapi.js</span><span class="chip">React Native</span><span class="chip">Razorpay</span>
+          <span class="chip">Next.js</span><span class="chip">Hapi.js</span><span class="chip">React Native</span><span class="chip">Razorpay</span><span class="chip">AWS EC2</span>
         </div>
       </article>
 
@@ -328,6 +351,16 @@
           <span class="chip">WordPress</span><span class="chip">Theme Dev</span>
         </div>
       </article>
+
+      <article class="card">
+        <div class="card-path">~/consulting/<b>puffins</b> · Dec 2025</div>
+        <span class="role-tag" style="font-size:10px;padding:1px 6px;">Consulting @ Samiteon</span>
+        <h3>Puffins (POC)</h3>
+        <p class="desc">Proof-of-concept e-commerce build on WordPress/WooCommerce with NMI payment gateway integration.</p>
+        <div class="chips">
+          <span class="chip">WordPress</span><span class="chip">WooCommerce</span><span class="chip">NMI</span>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -339,13 +372,13 @@
       <h2>What I actually build with</h2>
     </div>
     <div class="skill-manifest">
-      <div class="skill-row"><div class="k">backend</div><div class="v"><b>Node.js, Hapi.js, PHP, CodeIgniter</b> — REST API design, microservices, Sequelize (PostgreSQL), Mongoose (MongoDB), MySQL, Joi validation, JWT/OTP auth, Bull/Redis queues</div></div>
-      <div class="skill-row"><div class="k">frontend</div><div class="v"><b>Vue 3, React, Next.js</b> — Pinia, PrimeVue, Tailwind CSS, Bootstrap/AdminLTE, Chart.js, Recharts</div></div>
+      <div class="skill-row"><div class="k">backend</div><div class="v"><b>Node.js, Express, Hapi.js, PHP, CodeIgniter, TypeScript</b> — REST API design, microservices, Sequelize (PostgreSQL), Mongoose (MongoDB), MySQL, raw pg, Joi/Zod validation, JWT/OTP auth, Bull/Redis queues, node-cron</div></div>
+      <div class="skill-row"><div class="k">frontend</div><div class="v"><b>Vue 3, React 18, Next.js, TypeScript</b> — Pinia, PrimeVue, Radix UI, TanStack Query, Tailwind CSS, React Hook Form, Monaco Editor, Bootstrap/AdminLTE, Chart.js, Recharts</div></div>
       <div class="skill-row"><div class="k">mobile</div><div class="v"><b>React Native</b> — Redux Toolkit, React Navigation, native camera/audio, offline-first sync, voice search</div></div>
-      <div class="skill-row"><div class="k">ai / llm</div><div class="v"><b>Google Gemini API, Claude Code</b> — prompt engineering, structured JSON-schema outputs, safety guardrails, Sarvam AI speech-to-text, AWS Textract OCR, RAG pipelines (FAISS, vector DB), Python</div></div>
+      <div class="skill-row"><div class="k">ai / llm</div><div class="v"><b>Google Gemini API, Groq SDK, Claude Code</b> — prompt engineering, structured JSON-schema outputs, safety guardrails, Sarvam AI speech-to-text, AWS Textract OCR, RAG pipelines (FAISS, vector DB), Python</div></div>
       <div class="skill-row"><div class="k">data</div><div class="v"><b>PostgreSQL, MongoDB, MySQL, MS SQL Server, Redis</b> — Power BI reporting, cross-engine data migration</div></div>
       <div class="skill-row"><div class="k">cloud / devops</div><div class="v"><b>AWS (S3, EC2, Textract), Docker</b> — GitHub Actions CI/CD, k6 load/stress/soak testing, shell scripting for cron jobs</div></div>
-      <div class="skill-row"><div class="k">integrations</div><div class="v">Razorpay, Shiprocket, DTDC, Wati (WhatsApp), Gmail, Gravity Forms, Google Apps Script, MSG91, Google Auth, Firebase</div></div>
+      <div class="skill-row"><div class="k">integrations</div><div class="v">Razorpay, NMI, Shiprocket, DTDC, Wati (WhatsApp), WhatsApp Business Cloud API, Judge0, face-api.js, Gmail, Gravity Forms, Google Apps Script, MSG91, Google Auth, Firebase</div></div>
       <div class="skill-row"><div class="k">delivery</div><div class="v">Requirement gathering &amp; estimation, SOWs, deployment checklists, incident reports, Figma, UX Pilot</div></div>
     </div>
   </div>
@@ -363,19 +396,24 @@
       <p>I've spent the last four years at Vtricks / Invictosoft Technologies, with a stretch consulting on fintech and DTC brand sites through Samiteon. Recent focus has shifted toward production LLM pipelines — structured outputs, safety guardrails, and using tools like Claude Code to move faster on both new and legacy codebases.</p>
       <div class="timeline">
         <div class="tl-item">
+          <div class="tl-date">MAY 2026 – PRESENT</div>
+          <div class="tl-role">Nlite</div>
+          <div class="tl-detail">AI-native cognitive assessment platform</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">MAY 2026 – PRESENT</div>
+          <div class="tl-role">Vtricks LMS</div>
+          <div class="tl-detail">Full-stack LMS, AI-graded assessments — Senior Developer</div>
+        </div>
+        <div class="tl-item">
           <div class="tl-date">JUL 2026</div>
           <div class="tl-role">The Manaha</div>
           <div class="tl-detail">Healthcare site + custom PHP CMS</div>
         </div>
         <div class="tl-item">
-          <div class="tl-date">MAY 2026</div>
-          <div class="tl-role">Nlite</div>
-          <div class="tl-detail">AI-native cognitive assessment platform</div>
-        </div>
-        <div class="tl-item">
           <div class="tl-date">OCT 2025 – DEC 2025</div>
           <div class="tl-role">Consulting placement — Samiteon</div>
-          <div class="tl-detail">NewtekOne / Newtek Bank, Kelvin Dynamics</div>
+          <div class="tl-detail">NewtekOne / Newtek Bank, Kelvin Dynamics, Puffins (POC)</div>
         </div>
         <div class="tl-item">
           <div class="tl-date">AUG 2024</div>
